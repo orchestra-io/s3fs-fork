@@ -3760,6 +3760,13 @@ static void read_passwd_file (void) {
          AWSSecretAccessKey = field3;
          break;
       }
+      // If field1 exists, ignore supplied bucket name
+      if (field1.size() != 0) {
+         bucket = field1;
+         AWSAccessKeyId = field2;
+         AWSSecretAccessKey = field3;
+         break;
+      }
     }
   }
   return;
